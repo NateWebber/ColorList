@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.google.gson.Gson
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 
 class ColorVocab : ArrayList<ColorDefinition>()
@@ -29,5 +30,10 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
         colorList = ColorList(jsonString)
 
         _colorVocab.value = colorList.colors
+
+        colorList.colors.forEach{ //iterate through the color list and print each line
+            //println(it)
+            Log.i("DATA", it.toString())
+        }
     }
 }
