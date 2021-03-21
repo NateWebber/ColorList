@@ -9,7 +9,11 @@ import androidx.lifecycle.AndroidViewModel
 
 class ColorVocab : ArrayList<ColorDefinition>()
 
-data class ColorDefinition(val id: Int, val hexString: String, val rgb: Triple<Int, Int, Int>, val hsl: Triple<Int, Int, Int>, val name: String)
+data class ColorDefinition(val id: Int, val hexString: String, val rgb: Triple<Int, Int, Int>, val hsl: Triple<Int, Int, Int>, val name: String){
+    override fun toString(): String {
+        return "ColorItem(colorId=$id, hexString=$hexString, name=$name)"
+    }
+}
 
 class ColorList(jsonString: String) {
     var colors = ArrayList<ColorDefinition>()

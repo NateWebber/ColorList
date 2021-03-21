@@ -43,10 +43,27 @@ class MainFragment : Fragment() {
 
     private inner class ColorViewHolder(view: View) : RecyclerView.ViewHolder(view), View.OnClickListener {
         private lateinit var color: ColorDefinition
-        private val
+        private val nameTextView: TextView = itemView.findViewById(R.id.name_textView)
+
+        init {
+            itemView.setOnClickListener(this)
+        }
+
+        override fun onClick(v: View?) {
+            detailTextView.text = color.toString()
+        }
+
+        fun bind(color: ColorDefinition){
+            this.color = color
+            nameTextView.text = color.name
+        }
     }
 
     private inner class ColorAdapter(private val list: List<ColorDefinition>) : RecyclerView.Adapter<ColorViewHolder>(){
+
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ColorViewHolder {
+            val view =
+        }
 
     }
 
