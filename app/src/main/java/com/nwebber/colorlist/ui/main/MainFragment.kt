@@ -1,5 +1,6 @@
 package com.nwebber.colorlist.ui.main
 
+import android.graphics.Color
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.lifecycle.observe
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -57,6 +59,10 @@ class MainFragment : Fragment() {
         fun bind(color: ColorDefinition){
             this.color = color
             nameTextView.text = color.name
+            //nameTextView.setBackgroundColor(Color.parseColor(color.hexString)) //sorta works
+            var cardView : CardView = itemView.findViewById(R.id.cardView)
+            cardView.setCardBackgroundColor(Color.parseColor(color.hexString))
+
         }
     }
 

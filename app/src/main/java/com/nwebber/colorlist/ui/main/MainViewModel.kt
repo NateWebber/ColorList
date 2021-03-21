@@ -35,9 +35,9 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
 
         _colorVocab.value = colorList.colors
 
-        /*colorList.colors.forEach{ //iterate through the color list and print each line
+        colorList.colors.forEach{ //iterate through the color list and print each line
             //println(it)
             Log.i("DATA", it.toString())
-        }*/
+        }
     }
 }
