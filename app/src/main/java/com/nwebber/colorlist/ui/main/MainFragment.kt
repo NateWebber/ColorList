@@ -26,7 +26,7 @@ class MainFragment : Fragment() {
                               savedInstanceState: Bundle?): View {
         val view = inflater.inflate(R.layout.main_fragment, container, false)
         recycler = view.findViewById(R.id.recyclerView)
-        recycler.LayoutManager = LinearLayoutManager(context)
+        recycler.layoutManager = LinearLayoutManager(context)
 
         detailTextView = view.findViewById(R.id.detail_textView)
         detailTextView.text = ""
@@ -62,7 +62,14 @@ class MainFragment : Fragment() {
     private inner class ColorAdapter(private val list: List<ColorDefinition>) : RecyclerView.Adapter<ColorViewHolder>(){
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ColorViewHolder {
-            val view =
+            val view = layoutInflater.inflate(R.layout.recycler_item, parent, false)
+            return ColorViewHolder(view)
+        }
+
+        override fun getItemCount() = list.size
+
+        override fun onBindViewHolder(holder: ColorViewHolder, position: Int) {
+            holder.bind(list[position])
         }
 
     }
